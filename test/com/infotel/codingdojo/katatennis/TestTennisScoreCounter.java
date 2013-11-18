@@ -1,4 +1,6 @@
 
+package com.infotel.codingdojo.katatennis;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
