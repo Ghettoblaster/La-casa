@@ -23,16 +23,43 @@ public class TestTennisScoreCounter {
 	}
 	
 	@Test public void 
-	testScoreGameWhenPayer1Mark() {
+	testScoreGameWhenPlayer1Mark() {
 		aGame.mark("Jean");
 		
 		assertEquals("15 - 0", aGame.getScore());
 	}
 
 	@Test public void 
-	testScoreGameWhenPayer2Mark() {
+	testScoreGameWhenPlayer2Mark() {
 		aGame.mark("Michel");
 		
 		assertEquals("0 - 15", aGame.getScore());
+	}
+	
+	@Test public void
+	testScoreGameWhenPlayer1Mark2Times() {
+		aGame.mark("Jean");
+		aGame.mark("Jean");
+		
+		assertEquals("30 - 0", aGame.getScore());
+	}
+	
+	@Test public void
+	testScoreGameWhenPlayer1Mark3Times() {
+		aGame.mark("Jean");
+		aGame.mark("Jean");
+		aGame.mark("Jean");
+		
+		assertEquals("40 - 0", aGame.getScore());
+	}
+	
+	@Test public void
+	testScoreGameWhenPlayer1Mark4Times() {
+		aGame.mark("Jean");
+		aGame.mark("Jean");
+		aGame.mark("Jean");
+		aGame.mark("Jean");
+		
+		assertEquals("Jean win the game", aGame.getScore());
 	}
 }

@@ -18,11 +18,11 @@ public class TennisGame {
 	public void mark(String aPlayer) {
 		if(player1.equals(aPlayer))
 		{
-			this.score1 = this.score1 + new Integer(15);
+			this.score1=incrementScore(this.score1);
 		}
 		else if(player2.equals(aPlayer))
 		{
-			this.score2 = this.score2 + new Integer(15);
+			this.score2=incrementScore(this.score2);
 		}
 	}
 
@@ -30,6 +30,20 @@ public class TennisGame {
 		
 		return this.score1 + " - "+ this.score2;
 	}
-
+	
+	private Integer incrementScore(Integer score)
+	{
+		Integer result=score;
+		if(score<30)
+		{
+			result=result+15;
+		} else if (score==40) {
+			result = result + 0 ;
+		} else {
+			result=result+10;
+		}
+		return result;
+	}
 }
+
 
