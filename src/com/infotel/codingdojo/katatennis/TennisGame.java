@@ -30,7 +30,7 @@ public class TennisGame {
 		
 		return this.score1 + " - "+ this.score2;
 	}
-	
+
 	private Integer incrementScore(Integer score)
 	{
 		Integer result=score;
