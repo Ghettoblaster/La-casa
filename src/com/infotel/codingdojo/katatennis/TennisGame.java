@@ -16,31 +16,44 @@ public class TennisGame {
 	}
 
 	public void mark(String aPlayer) {
-		if(player1.equals(aPlayer))
+		if (this.player1.equals(aPlayer))
 		{
-			this.score1=incrementScore(this.score1);
+			this.score1++;
 		}
-		else if(player2.equals(aPlayer))
+		else if (this.player2.equals(aPlayer))
 		{
-			this.score2=incrementScore(this.score2);
+			
+			this.score2++;
 		}
 	}
 
 	public String getScore() {
+		String score="";
+		if (this.score1 == 4) {
+			score = this.player1 + " " + parseScore(this.score1);
+		} else if (this.score2 == 4) {
+			score = this.player2 + " " + parseScore(this.score2);
+		} else {
+			score = parseScore(this.score1) + " - "+ parseScore(this.score2);
+		}
 		
-		return this.score1 + " - "+ this.score2;
+		return score;
 	}
 
-	private Integer incrementScore(Integer score)
-	{
-		Integer result=score;
-		if(score<30)
-		{
-			result=result+15;
-		} else if (score==40) {
-			result = result + 0 ;
-		} else {
-			result=result+10;
+	private String parseScore(Integer score) {
+		String result;
+		switch (score) {
+			case 0 : result = "0";
+					 break;
+			case 1 : result = "15";
+					 break;
+			case 2 : result = "30";
+					 break;
+			case 3 : result = "40";
+					 break;
+			case 4 : result = "win the game";
+					 break;
+			default: result = "Error in score";
 		}
 		return result;
 	}
