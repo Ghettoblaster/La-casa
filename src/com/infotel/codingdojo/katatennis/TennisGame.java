@@ -18,29 +18,36 @@ public class TennisGame {
 	public void mark(String aPlayer) {
 		if(player1.equals(aPlayer))
 		{
-			this.score1=incrementScore(this.score1);
+			this.score1 = this.score1 + 1;
 		}
 		else if(player2.equals(aPlayer))
 		{
-			this.score2=incrementScore(this.score2);
+			this.score2 = this.score2 +1;
 		}
 	}
 
 	public String getScore() {
-		
-		return this.score1 + " - "+ this.score2;
+		String scoreString;
+		if (this.score1 == 4) {
+			scoreString = this.player1 + " win the game";
+		} else if (this.score2 == 4) {
+			scoreString = this.player2 + " win the game";
+		} else {
+			scoreString = map(this.score1) + " - "+ map(this.score2);
+		}
+		return scoreString;
 	}
 
-	private Integer incrementScore(Integer score)
-	{
-		Integer result=score;
-		if(score<30)
-		{
-			result=result+15;
-		} else if (score==40) {
-			result = result + 0 ;
+	private String map(Integer score) {
+		String result;
+		if (score == 0) {
+			result = "0";
+		} else if (score == 1) {
+			result = "15";
+		} else if (score == 2) {
+			result = "30";
 		} else {
-			result=result+10;
+			result = "40";
 		}
 		return result;
 	}

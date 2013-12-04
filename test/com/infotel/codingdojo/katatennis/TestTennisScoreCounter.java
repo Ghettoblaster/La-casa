@@ -54,12 +54,22 @@ public class TestTennisScoreCounter {
 	}
 	
 	@Test public void
-	testScoreGameWhenPlayer1Mark4Times() {
+	testScoreGameWhenPlayer1Wins() {
 		aGame.mark("Jean");
 		aGame.mark("Jean");
 		aGame.mark("Jean");
 		aGame.mark("Jean");
 		
 		assertEquals("Jean win the game", aGame.getScore());
+	}
+
+	@Test public void
+	testScoreGameWhenPlayer2Wins() {
+		aGame.mark("Michel");
+		aGame.mark("Michel");
+		aGame.mark("Michel");
+		aGame.mark("Michel");
+		
+		assertEquals("Michel win the game", aGame.getScore());
 	}
 }
